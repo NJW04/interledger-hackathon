@@ -1,0 +1,5 @@
+// Build the docker image
+docker build -t netrunner003/interledger:1.0 .  
+
+// Run the docker image
+docker run -p 5000:3000 sha256:def28ad4cb160814a0594b14d51074d2c546538d023cf2ca7db8934c8cc06b10
