@@ -1,0 +1,22 @@
+{
+  "name": "interledger-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NJW04/interledger-hackathon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NJW04/interledger-hackathon/issues"
+  },
+  "homepage": "https://github.com/NJW04/interledger-hackathon#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
