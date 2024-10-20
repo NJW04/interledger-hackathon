@@ -5,6 +5,7 @@ import "../css/CustomerOngoingJobs.css";
 function CustomerOngoingJobs() {
   // Sample ongoing jobs (you would fetch this data from the backend)
   const [ongoingJobs, setOngoingJobs] = useState([]);
+  const [status, setStatus] = useState("Ongoing");
 
   //THESE VALUES WOULD BE LOADED FROM BACKEND FROM USER ACCOUNTS, ETC...
 
@@ -13,6 +14,7 @@ function CustomerOngoingJobs() {
     try {
       const resp = await httpClient.post("/make_payments", { jobId });
       // Add success or update logic here if necessary
+      setStatus = "Complete";
     } catch (error) {
       console.log("Error making payment");
     }
@@ -22,11 +24,8 @@ function CustomerOngoingJobs() {
     (async () => {
       try {
         const resp = await httpClient.get("/get_all_offer_listings");
-        // Filter jobs to include only those with 'ongoing' or 'complete' states
-        const filteredJobs = resp.data.filter(
-          (job) => job.state === "ongoing" || job.state === "complete"
-        );
-        setOngoingJobs(filteredJobs);
+        console.log(resp.data);
+        setOngoingJobs(resp.data);
       } catch (error) {
         console.log("Error retrieving available job listings");
       }
@@ -36,9 +35,6 @@ function CustomerOngoingJobs() {
   return (
     <div className="app-container">
       {/* Header Section */}
-      <button className="pay-button" onClick={() => handlePayment(1)}>
-        THIS IS SO WE CAN TEST PAY
-      </button>
       <header className="app-header">
         <h1>JobMatch SA</h1>
         <p>Your Ongoing Jobs</p>
@@ -55,44 +51,55 @@ function CustomerOngoingJobs() {
               key={job.id}
             >
               <h2>
-                {job.jobType} - {job.location}
+                {job.job_type} - {job.location}
               </h2>
               <p>
                 <strong>Address:</strong> {job.address}
               </p>
               <p>
                 <strong>Start Date/Time:</strong>{" "}
-                {new Date(job.startDate).toLocaleString()}
+                {new Date(job.start_date).toLocaleString()}
               </p>
               <p>
-                <strong>End Date:</strong>{" "}
-                {new Date(job.endDate).toLocaleString()}
+                <strong>Pay Per Hour:</strong> R{job.pay_per_hour}
               </p>
               <p>
-                <strong>Hours Per Day:</strong> {job.hoursPerDay}
+                <strong>Hours Per Day:</strong> {job.hours_per_day}
               </p>
               <p>
-                <strong>Number of Days:</strong> {job.numDays}
+                <strong>Number of Days:</strong> {job.num_days}
               </p>
               <p>
                 <strong>Total Pay:</strong>{" "}
-                {`R${job.payPerHour * job.hoursPerDay * job.numDays}`}
+                {`R${job.pay_per_hour * job.hours_per_day * job.num_days}`}
               </p>
 
               {/* Display job status */}
               <p>
-                <strong>Status:</strong>{" "}
-                {job.state === "complete" ? "Complete" : "Ongoing"}
+                <strong>Status:</strong> {status}
               </p>
 
               {/* Pay Button, visible only for ongoing jobs */}
-              {job.state === "ongoing" && (
+
+              {status === "ongoing" ? (
                 <button
                   className="pay-button"
                   onClick={() => handlePayment(job.id)}
                 >
                   Pay
                 </button>
+              ) : (
+                <div
+                  className="completed-rectangle"
+                  style={{
+                    backgroundColor: "green",
+                    color: "white",
+                    padding: "10px",
+                    borderRadius: "5px",
+                  }}
+                >
+                  Completed!
+                </div>
               )}
             </div>
           ))}

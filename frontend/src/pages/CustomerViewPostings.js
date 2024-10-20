@@ -12,11 +12,11 @@ function CustomerViewPostings() {
 
   // Track form data for each job listing
   const [formData, setFormData] = useState({
-    address: "",
+    address: "18 Avenue Fresnaye",
     startDate: "",
-    hoursPerDay: "",
-    numDays: "",
-    jobDescription: "",
+    hoursPerDay: "4",
+    numDays: "2",
+    jobDescription: "Please can you come scrub this dang stain off!!!",
   });
 
   // Track the selected filter type
@@ -74,6 +74,8 @@ function CustomerViewPostings() {
       );
       console.log(response.data.message);
       // Optionally, you can reset the form or provide feedback to the user
+      setExpandedJobId(null);
+      alert("Offer Sent!");
     } catch (error) {
       console.log("Error adding job listing:", error);
     }

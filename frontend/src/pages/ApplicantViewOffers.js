@@ -21,7 +21,7 @@ function ApplicantViewOffers() {
   const acceptOffer = async (offerId) => {
     try {
       // Show an alert confirming the acceptance
-      alert(`You have accepted the offer for Job ID: ${offerId}`);
+      alert(`You have accepted the offer for Job!`);
 
       // Make the POST request to the backend to accept the offer
       const resp = await httpClient.post("/accept_offer", { id: offerId });
@@ -63,6 +63,9 @@ function ApplicantViewOffers() {
               <p>
                 <strong>Start Date/Time:</strong>{" "}
                 {new Date(offer.start_date).toLocaleString()}
+              </p>
+              <p>
+                <strong>Pay Per Hour:</strong> R{offer.pay_per_hour}
               </p>
               <p>
                 <strong>Hours Per Day:</strong> {offer.hours_per_day}

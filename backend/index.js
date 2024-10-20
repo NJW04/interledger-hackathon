@@ -146,6 +146,22 @@ app.post("/accept_offer", (req, res) => {
         }
       }
     );
+
+    // Update the state of all postings in JobListingOffer to "ongoing"
+    db.run(
+      `UPDATE JobListingOffer SET state = ?`,
+      ["ongoing"], // Assuming customer_id corresponds to the deleted post's ID
+      function (err) {
+        if (err) {
+          return res.status(500).json({
+            error: "Failed to update JobListingOffer state to ongoing",
+          });
+        }
+
+        // Successfully deleted and updated
+        return res.status(200).json({ success: true });
+      }
+    );
   });
 });
 
