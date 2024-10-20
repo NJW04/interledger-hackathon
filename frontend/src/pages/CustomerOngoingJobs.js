@@ -5,7 +5,7 @@ import "../css/CustomerOngoingJobs.css";
 function CustomerOngoingJobs() {
   // Sample ongoing jobs (you would fetch this data from the backend)
   const [ongoingJobs, setOngoingJobs] = useState([]);
-  const [status, setStatus] = useState("Ongoing");
+  const [status, setStatus] = useState("ongoing");
 
   //THESE VALUES WOULD BE LOADED FROM BACKEND FROM USER ACCOUNTS, ETC...
 
@@ -13,8 +13,13 @@ function CustomerOngoingJobs() {
   const handlePayment = async (jobId) => {
     try {
       const resp = await httpClient.post("/make_payments", { jobId });
-      // Add success or update logic here if necessary
-      setStatus = "Complete";
+      // Update the job status to 'complete' upon successful payment
+      console.log("IS THIS EVEN HAPPENING!!??");
+      setOngoingJobs((prevJobs) =>
+        prevJobs.map((job) =>
+          job.id === jobId ? { ...job, state: "complete" } : job
+        )
+      );
     } catch (error) {
       console.log("Error making payment");
     }
