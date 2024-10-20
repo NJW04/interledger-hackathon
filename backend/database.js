@@ -1,5 +1,7 @@
 // database.js
-const sqlite3 = require("sqlite3").verbose();
+
+import sqlite3 from "sqlite3";
+
 const db = new sqlite3.Database("./jobs.db", (err) => {
   if (err) {
     console.error("Error opening database " + err.message);
@@ -60,7 +62,7 @@ db.serialize(() => {
 
 const deleteAllRecords = () => {
   db.serialize(() => {
-    db.run("DELETE FROM JobListings", (err) => {
+    db.run("DELETE FROM JobListingAvailable", (err) => {
       if (err) {
         console.error("Error deleting JobListings:", err.message);
       } else {
@@ -76,10 +78,18 @@ const deleteAllRecords = () => {
       }
     });
 
+    db.run("DELETE FROM JobListingOffer", (err) => {
+      if (err) {
+        console.error("Error deleting JobListings:", err.message);
+      } else {
+        console.log("All records from JobListings deleted");
+      }
+    });
+
     // Add more DELETE statements for other tables as necessary
   });
 };
 
 //deleteAllRecords();
 
-module.exports = db;
+export default db;
