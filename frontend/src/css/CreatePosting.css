@@ -1,0 +1,156 @@
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Poppins:wght@600&display=swap");
+
+/* General Mobile-First Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif; /* Set Lato as the default font */
+  background-color: #000;
+  color: #fff;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* App container */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  padding: 20px;
+}
+
+/* Header */
+.app-header {
+  position: relative;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Home Button */
+.home-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  border: none;
+  color: #000;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 8px;
+  text-transform: uppercase;
+}
+
+.home-button:hover {
+  background-color: #ddd;
+}
+
+/* Increased margin-top for the header text */
+.app-header h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 2.2rem; /* Slightly reduced size for "JobMatch SA" */
+  font-weight: 700;
+  color: #fff;
+  margin-top: 60px; /* Further increased space below the Home button */
+  margin-bottom: 5px; /* Reduced space between the title and subtitle */
+}
+
+.app-header p {
+  font-family: "Lato", sans-serif;
+  font-size: 1.1rem; /* Slightly smaller "State your job specification" */
+  color: #ccc;
+}
+
+/* Main Section */
+.app-main {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Form Container */
+.form-container {
+  background-color: #333;
+  border-radius: 20px;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px; /* Constrained width for the form */
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.form-group select,
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.form-group input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.form-group input::-webkit-outer-spin-button,
+.form-group input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Button Styles */
+.action-button {
+  background-color: #fff;
+  color: #000;
+  padding: 14px 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.action-button:hover {
+  background-color: #ddd;
+  transform: translateY(-3px);
+}
+
+/* Footer Navigation */
+.footer-nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  border-top: 1px solid #444;
+}
+
+.nav-icon {
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  border-radius: 50%;
+}

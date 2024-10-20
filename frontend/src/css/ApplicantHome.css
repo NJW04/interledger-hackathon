@@ -1,0 +1,121 @@
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Poppins:wght@600&display=swap");
+
+/* General Mobile-First Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif; /* Set Lato as the default font */
+  background-color: #000 !important;
+  color: #fff;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* App container */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  padding: 20px;
+}
+
+/* Header */
+.app-header {
+  text-align: center;
+  margin-bottom: 30px; /* Adjusted margin to push content down moderately */
+}
+
+.app-header h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700; /* Bolder header for more impact */
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.app-header p {
+  font-family: "Lato", sans-serif;
+  font-size: 1.2rem; /* Keeping subtitle font size */
+  color: #ccc;
+}
+
+/* Main Section */
+.app-main {
+  flex-grow: 1;
+}
+
+.job-options {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* Increased gap between job post and job offer containers */
+}
+
+.job-card {
+  background-color: #333;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+
+.job-card:hover {
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+}
+
+.job-card h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem; /* Reduced font size for card headers */
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.job-card p {
+  font-family: "Lato", sans-serif;
+  font-size: 0.9rem; /* Slightly reduced font size for descriptions */
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+/* Button Styles */
+.action-button {
+  background-color: #fff; /* White background */
+  color: #000; /* Black text */
+  padding: 14px 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem; /* Reduced font size for buttons */
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%; /* Full width to fit the container */
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.action-button:hover {
+  background-color: #ddd; /* Slight darkening on hover */
+  transform: translateY(-3px); /* Slight lift on hover */
+}
+
+/* Footer Navigation */
+.footer-nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  border-top: 1px solid #444;
+}
+
+.nav-icon {
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  border-radius: 50%;
+}
