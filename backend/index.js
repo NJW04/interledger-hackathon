@@ -349,7 +349,6 @@ app.post("/make_payments", async (req, res) => {
   } catch (err) {
     if (err instanceof OpenPaymentsClientError) {
       console.log(grantContinuationErrorMessage);
-      process.exit();
     }
 
     throw err;
@@ -384,8 +383,6 @@ app.post("/make_payments", async (req, res) => {
     "\nStep 7: Created outgoing payment. Funds will now move from the outgoing payment to the incoming payment.",
     outgoingPayment
   );
-
-  process.exit();
 });
 
 // Start the server
