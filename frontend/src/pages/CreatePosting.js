@@ -28,6 +28,7 @@ function CreatePosting() {
       // Make POST request to Flask backend
       const response = await httpClient.post("/add_job_listing", jobData);
       console.log("Job listing added with ID:", response.data.id);
+      alert("Job listing added!");
     } catch (error) {
       console.error("Error adding job listing:", error);
     }
