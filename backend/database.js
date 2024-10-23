@@ -85,8 +85,6 @@ const deleteAllRecords = () => {
         console.log("All records from JobListings deleted");
       }
     });
-
-    // Add more DELETE statements for other tables as necessary
   });
 };
 

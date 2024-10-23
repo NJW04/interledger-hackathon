@@ -1,5 +1,7 @@
 # Bridging domestic work with open payments
 
+This project aims to enable domestic job listings using Open Payments by providing a market place for potential employers and employees to match. The employer pays straight to the employees account after the day is done, helping low income individuals have a steadier source of income as they can get paid straight after the work day. This can allow them to buy food, transport or anything they need more frequently alleviating constant stress if they run out of money.
+
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
